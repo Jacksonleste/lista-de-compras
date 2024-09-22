@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
+import { InputComponent } from './components/input/input.component';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, InputComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lista-de-compras';
+  title = 'app-lista-de-compras';
+
+  constructor() { }
 }
