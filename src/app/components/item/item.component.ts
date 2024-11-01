@@ -31,7 +31,11 @@ export class ItemComponent implements OnInit {
   mudarStatusItem(item:Item){
     this.listaService.trocarStatus(item);
   }
-}
+
+  deleteItem(){
+        this.listaService.deletarItem(this.item.id);
+    }
+  }
 function Import(): (target: ItemComponent, propertyKey: 'item') => void {
   throw new Error('Function not implemented.');
 }
