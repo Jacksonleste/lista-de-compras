@@ -25,7 +25,7 @@ export class InputComponent implements OnInit, OnChanges {
       if(!changes['itemEditar'].firstChange){
         this.item = this.itemEditar?.nome;
         this.editando = true;
-        this.textBtn = 'Salvar Item';
+        this.textBtn = 'Editar Item';
       }
   }
 
