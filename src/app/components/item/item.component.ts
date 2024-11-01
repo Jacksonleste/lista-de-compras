@@ -13,7 +13,7 @@ import { ListaDeCompraService } from '../../service/lista-de-compra.service';
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css'],
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent implements OnInit{
   @Input() item!: Item;
   @Output() emitindoItemParaEditar: EventEmitter<any> = new EventEmitter();
 
@@ -33,8 +33,8 @@ export class ItemComponent implements OnInit {
   }
 
   deleteItem(){
-        this.listaService.deletarItem(this.item.id);
-    }
+    this.listaService.deletarItem(this.item.id);
+  }
   }
 function Import(): (target: ItemComponent, propertyKey: 'item') => void {
   throw new Error('Function not implemented.');

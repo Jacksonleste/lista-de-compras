@@ -28,4 +28,8 @@ export class AppComponent implements OnInit {
   editarItem(item: Item): void {
     this.itemEditar = item;
   }
+
+  limparLista(){
+    this.listaDeCompras = [];
+  }
 }

@@ -1,3 +1,4 @@
+import { get } from 'http';
 import { Item } from '../interfaces/iItem';
 import { Injectable } from '@angular/core';
 
@@ -47,5 +48,9 @@ export class ListaDeCompraService{
   deletarItem(id: number){
     const index = this.listaDeCompra.findIndex((item)=>item.id === id);
     this.listaDeCompra.splice(index, 1);
+  }
+
+  limparLista(){
+    this.listaDeCompra = [];
   }
 }
