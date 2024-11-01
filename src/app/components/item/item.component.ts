@@ -1,14 +1,15 @@
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { Item } from './../../interfaces/iItem';
+import { CommonModule, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Item } from '../../interfaces/iItem';
+import { ListaDeCompraService } from '../../service/lista-de-compra.service';
 
 @Component({
   selector: 'app-item',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FontAwesomeModule, NgIf, NgFor],
+  imports: [CommonModule, RouterOutlet, FontAwesomeModule, NgIf, NgFor, NgClass],
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css'],
 })
@@ -19,12 +20,16 @@ export class ItemComponent implements OnInit {
   faPen = faPen;
   faTrash = faTrash;
 
-  constructor() {}
+  constructor(private listaService: ListaDeCompraService) {}
 
   ngOnInit(): void {}
 
   editarItem(): void {
     this.emitindoItemParaEditar.emit(this.item);
+  }
+
+  mudarStatusItem(item:Item){
+    this.listaService.trocarStatus(item);
   }
 }
 function Import(): (target: ItemComponent, propertyKey: 'item') => void {

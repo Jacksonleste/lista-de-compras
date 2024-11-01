@@ -1,5 +1,5 @@
 import { ListaDeCompraService } from './../../service/lista-de-compra.service';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Item } from '../../interfaces/iItem';
 
@@ -10,7 +10,7 @@ import { Item } from '../../interfaces/iItem';
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css'],
 })
-export class InputComponent implements OnInit, OnChanges {
+export class InputComponent implements OnInit, OnChanges, DoCheck {
   item: string = '';
 
   constructor(private listaDeCompraService: ListaDeCompraService){}
@@ -27,6 +27,10 @@ export class InputComponent implements OnInit, OnChanges {
         this.editando = true;
         this.textBtn = 'Editar Item';
       }
+  }
+
+  ngDoCheck(): void {
+      this.listaDeCompraService.atualizarLocalStorage();
   }
 
   salvarItem() {

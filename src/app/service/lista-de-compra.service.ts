@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class ListaDeCompraService {
+export class ListaDeCompraService{
   private listaDeCompra: Item[] = [];
 
   constructor() {
@@ -30,15 +30,17 @@ export class ListaDeCompraService {
     const item:Item = this.criarItem(nomeItem);
     console.log(item);
     this.listaDeCompra.push(item);
-    this.atualizarLocalStorage();
   }
 
   editarItem(itemAntigo:Item, nomeItem: string) {
     itemAntigo.nome = nomeItem;
-    this.atualizarLocalStorage();
   }
 
   atualizarLocalStorage(){
     localStorage.setItem('items', JSON.stringify(this.listaDeCompra));
+  }
+
+  trocarStatus(item:Item){
+    item.comprado = !item.comprado;
   }
 }
