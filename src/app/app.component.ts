@@ -11,16 +11,21 @@ import { ItemComponent } from './components/item/item.component';
   standalone: true,
   imports: [CommonModule, RouterOutlet, InputComponent, ItemComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'app-lista-de-compras';
   listaDeCompras!: Array<Item>;
+  itemEditar!: Item;
 
-  constructor(private listaService: ListaDeCompraService) { }
+  constructor(private listaService: ListaDeCompraService) {}
 
   ngOnInit(): void {
-      this.listaDeCompras = this.listaService.getListaDeCompra();
-      console.log(this.listaDeCompras)
+    this.listaDeCompras = this.listaService.getListaDeCompra();
+    console.log(this.listaDeCompras);
+  }
+
+  editarItem(item: Item): void {
+    this.itemEditar = item;
   }
 }

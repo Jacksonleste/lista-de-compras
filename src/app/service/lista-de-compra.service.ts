@@ -50,4 +50,8 @@ export class ListaDeCompraService {
     this.listaDeCompra.push(item);
     console.log(this.listaDeCompra);
   }
+
+  editarItem(itemAntigo:Item, nomeItem: string) {
+    this.listaDeCompra.map((item)=>{item===itemAntigo});
+  }
 }

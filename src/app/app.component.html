@@ -1,11 +1,10 @@
 <section class="main">
-  <app-input>
-  </app-input>
+  <app-input [itemEditar]="itemEditar"/>
   <div class="container">
     <div class="lista">
       <h4 class="title-list">Lista de Compras</h4>
       @for (item of listaDeCompras; track $index) {
-        <app-item [item]="item"></app-item>
+        <app-item (emitindoItemParaEditar)="editarItem($event)" [item]="item"></app-item>
       }
     </div>
   </div>
